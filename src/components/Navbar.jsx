@@ -1,0 +1,44 @@
+import React, { useState } from "react";
+
+const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <nav className="bg-white shadow fixed w-full z-20 top-0 left-0">
+      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-blue-500 rounded flex items-center justify-center text-white font-bold">D</div>
+          <span className="font-bold text-lg text-gray-800">Downou</span>
+        </div>
+        {/* Desktop menu */}
+        <div className="hidden md:flex items-center gap-8">
+          <a href="#accueil" className="text-gray-700 hover:text-blue-500 font-medium">Accueil</a>
+          <a href="#modules" className="text-gray-700 hover:text-blue-500 font-medium">Modules</a>
+          <a href="#apropos" className="text-gray-700 hover:text-blue-500 font-medium">À propos</a>
+          <a href="#contact" className="text-gray-700 hover:text-blue-500 font-medium">Contact</a>
+        </div>
+        {/* Bouton Se connecter */}
+        <div className="hidden md:block">
+          <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition text-sm">Se connecter</button>
+        </div>
+        {/* Hamburger */}
+        <button className="md:hidden flex items-center" onClick={() => setOpen(!open)}>
+          <span className="material-icons text-3xl">{open ? 'close' : 'menu'}</span>
+        </button>
+      </div>
+      {/* Mobile menu */}
+      {open && (
+        <div className="md:hidden bg-white shadow px-4 pb-4">
+          <a href="#accueil" className="block py-2 text-gray-700 hover:text-blue-500 font-medium">Accueil</a>
+          <a href="#modules" className="block py-2 text-gray-700 hover:text-blue-500 font-medium">Modules</a>
+          <a href="#apropos" className="block py-2 text-gray-700 hover:text-blue-500 font-medium">À propos</a>
+          <a href="#contact" className="block py-2 text-gray-700 hover:text-blue-500 font-medium">Contact</a>
+          <button className="w-full mt-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition text-sm">Se connecter</button>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar; 
