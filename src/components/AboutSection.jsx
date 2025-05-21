@@ -16,8 +16,8 @@ const AboutSection = () => {
       <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
         {/* Image à gauche */}
         <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
-          <div className="rounded-2xl overflow-hidden shadow-lg w-80 h-64 bg-gray-200 flex items-center justify-center">
-            <span className="text-gray-400">[Image tablette ici]</span>
+          <div className="rounded-2xl overflow-hidden shadow-lg w-80 h-full bg-gray-200 flex items-center justify-center">
+            <img src="/images/A_PROPOS.png" alt="about" className="w-full h-full object-contain" />
           </div>
         </div>
         {/* Texte à droite */}

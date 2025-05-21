@@ -2,46 +2,46 @@ import React from "react";
 
 const steps = [
   {
-    icon: "🔍",
+    icon: "/images/RECUEIL.svg",
     title: "Recueil de besoin",
-    desc: "Analyse de vos besoins RH pour une solution sur-mesure.",
   },
   {
-    icon: "📒",
+    icon: "/images/CUSTOMISATION.svg",
     title: "Customisation",
-    desc: "Personnalisation de la plateforme selon vos attentes.",
   },
   {
-    icon: "🚀",
+    icon: "/images/DEPLOIEMENT.svg",
     title: "Déploiement",
-    desc: "Mise en place rapide et accompagnement au lancement.",
   },
   {
-    icon: "🎓",
+    icon: "/images/FORMATION.svg",
     title: "Formation & maintenance",
-    desc: "Formation de vos équipes et support continu.",
   },
 ];
 
 const ProcessSection = () => {
   return (
-    <section className="bg-blue-900 py-16 text-white">
-      <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 uppercase tracking-wide">Le processus Downou</h2>
-        <p className="text-center text-blue-200 mb-10 max-w-2xl mx-auto">
-          Notre approche repose sur quatre étapes clés : recueil de besoins, customisation, déploiement et formation avec maintenance, pour vous offrir une solution parfaitement adaptée et opérationnelle.
+    <section className="relative text-white py-16 bg-cover bg-center w-full" style={{ backgroundImage: "url('/images/PROCESSUS_MOCKUP.png')" }}>
+      <div className="absolute inset-0 z-0" />
+      <div className="relative z-10 max-w-5xl mx-auto px-4">
+        <h2 className="text-3xl md:text-3xl font-bold text-center mb-3 uppercase tracking-wide">Le processus Downou</h2>
+        <p className="text-center text-gray-200 mb-10 max-w-4xl mx-auto">
+        Chez Dowonou, notre approche repose sur quatre étapes clés : recueil de besoins, customisation, déploiement et formation avec maintenance, pour vous offrir une solution parfaitement adaptée et opérationnelle.
         </p>
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0">
-          {steps.map((step, idx) => (
-            <div key={step.title} className="flex flex-col items-center text-center flex-1">
-              <div className="text-4xl mb-3">{step.icon}</div>
-              <h3 className="font-semibold text-lg mb-1">{step.title}</h3>
-              <p className="text-blue-200 text-sm mb-2">{step.desc}</p>
-              {idx < steps.length - 1 && (
-                <div className="hidden md:block h-1 w-12 bg-blue-400 mx-auto my-4 rounded-full" />
-              )}
-            </div>
-          ))}
+          <div className="flex flex-row items-center w-full">
+            {steps.map((step, idx) => (
+              <React.Fragment key={step.title}>
+                <div className="flex flex-col items-center text-center flex-1">
+                  <img src={step.icon} alt={step.title} className="w-16 h-16 mb-6" />
+                  <h3 className="font-semibold text-lg mb-1">{step.title}</h3>
+                </div>
+                {idx < steps.length - 1 && (
+                  <div className="hidden md:block h-0.5 w-12 md:w-24 pt-12 border-t-2 border-dashed border-white mx-2 self-center"></div>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
         </div>
       </div>
     </section>
