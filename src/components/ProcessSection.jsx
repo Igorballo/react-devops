@@ -2,19 +2,19 @@ import React from "react";
 
 const steps = [
   {
-    icon: "/images/RECUEIL.svg",
+    icon: "/svg/RECUEIL.svg",
     title: "Recueil de besoin",
   },
   {
-    icon: "/images/CUSTOMISATION.svg",
+    icon: "/svg/CUSTOMISATION.svg",
     title: "Customisation",
   },
   {
-    icon: "/images/DEPLOIEMENT.svg",
+    icon: "/svg/DEPLOIEMENT.svg",
     title: "Déploiement",
   },
   {
-    icon: "/images/FORMATION.svg",
+    icon: "/svg/FORMATION.svg",
     title: "Formation & maintenance",
   },
 ];

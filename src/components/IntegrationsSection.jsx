@@ -20,7 +20,7 @@ const IntegrationsSection = () => {
         </div>
         {/* Logos à droite */}
         <div className="w-full md:w-1/2 flex justify-center">
-          <img src="/images/INTEGRATION.svg" alt="integration" className="w-full h-full object-contain" />
+          <img src="/svg/INTEGRATION.svg" alt="integration" className="w-full h-full object-contain" />
         </div>
       </div>
     </section>

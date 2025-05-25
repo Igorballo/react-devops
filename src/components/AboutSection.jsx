@@ -33,12 +33,12 @@ const AboutSection = () => {
           </p>
           <ul className="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-4">
             {avantages.map((a) => (
-              <li key={a} className="flex items-center text-gray-800 font-semibold hitespace-nowrap"><img src="/images/CIRCLE.svg" alt="•" className="w-4 h-4 mr-2" />{a}</li>
+              <li key={a} className="flex items-center text-gray-800 font-semibold hitespace-nowrap"><img src="/svg/CIRCLE.svg" alt="•" className="w-4 h-4 mr-2" />{a}</li>
             ))}
           </ul>
           <button className="w-[fit-content] bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded transition text-sm flex items-center gap-2">
             Contactez-nous
-            <img src="/images/ARROW_RIGHT.svg" alt="arrow_forward" className="w-4 h-4 pt-1" />
+            <img src="/svg/ARROW_RIGHT.svg" alt="arrow_forward" className="w-4 h-4 pt-1" />
           </button>
         </div>
       </div>

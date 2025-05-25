@@ -5,7 +5,7 @@ const modules = [
     title: "DOWONOU RH",
     desc: "Solutions destinées à optimiser la gestion du personnel au sein d'une ou plusieurs entreprise",
     color: "border-blue-600",
-    icon: "/images/DOWONOU_RH.svg",
+    icon: "/svg/DOWONOU_RH.svg",
   },
   {
     title: "DOWONOU GED",
@@ -17,19 +17,19 @@ const modules = [
     title: "DOWONOU PAIE",
     desc: "Solution intuitive qui automatise le calcul des salaires. Une administration efficace et sécurisée.",
     color: "border-teal-500",
-    icon: "/images/DOWONOU_PAIE.svg",
+    icon: "/svg/DOWONOU_PAIE.svg",
   },
   {
     title: "DOWONOU CRM",
     desc: "Solutions destinées à aider les entreprises à gérer leurs relations avec leurs clients actuels et potentiels.",
     color: "border-red-600",
-    icon: "/images/DOWONOU_CRM.svg",
+    icon: "/svg/DOWONOU_CRM.svg",
   },
   {
     title: "DOWONOU STOCK",
     desc: "Gestion électronique des documents qui centralise, organise et sécurise tous vos fichiers.",
     color: "border-blue-400",
-    icon: "/images/DOWONOU_STOCK.svg",
+    icon: "/svg/DOWONOU_STOCK.svg",
   },
 ];
 

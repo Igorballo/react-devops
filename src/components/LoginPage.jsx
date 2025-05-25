@@ -44,7 +44,7 @@ const LoginPage = () => {
                 <label className="block text-sm font-medium mb-1">Adresse mail <span className="text-red-500">*</span></label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                    <img src="/images/EMAIL_INPUT.svg" className="w-5 h-4" alt="mail" />
+                    <img src="/svg/EMAIL_INPUT.svg" className="w-5 h-4" alt="mail" />
                   </span>
                   <input
                     type="email"
@@ -60,7 +60,7 @@ const LoginPage = () => {
                 <label className="block text-sm font-medium mb-1">Mot de passe <span className="text-red-500">*</span></label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                    <img src="/images/PASSWORD_INPUT.svg" className="w-5 h-4" alt="mail" />
+                    <img src="/svg/PASSWORD_INPUT.svg" className="w-5 h-4" alt="mail" />
                   </span>
                   <input
                     type="password"
