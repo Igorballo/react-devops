@@ -6,10 +6,10 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black/30 z-0" />
       <div className="relative z-20 max-w-5xl mx-auto px-4 py-20 flex flex-col items-center text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-10">
-          Un écosystème <span className="text-blue-400">RH à 360°</span>, pensé pour vos besoins d'entreprise.
+          Un écosystème <span className="text-blue-500">RH à 360°</span>, pensé pour vos besoins d'entreprise.
         </h1>
         <p className="mb-16 text-lg text-gray-200">
-          Bienvenue sur <span className="font-semibold">Downou</span>, votre partenaire incontournable pour une gestion des employés plus efficace et moderne. <span className="font-semibold">Downou</span>, une solution complète et intuitive qui centralise toutes les fonctions RH en un seul outil.
+          Bienvenue sur <span className="font-semibold">Dowonou</span>, votre partenaire incontournable pour une gestion des employés plus efficace et moderne. <span className="font-semibold">Dowonou</span>, une solution complète et intuitive qui centralise toutes les fonctions RH en un seul outil.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mb-10 justify-center">
           <button className="bg-blue-700 hover:bg-blue-800 text-white px-6 py-2 rounded transition">Contactez-nous</button>

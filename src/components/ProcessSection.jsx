@@ -24,7 +24,7 @@ const ProcessSection = () => {
     <section className="relative text-white py-16 bg-cover bg-center w-full" style={{ backgroundImage: "url('/images/PROCESSUS_MOCKUP.png')" }}>
       <div className="absolute inset-0 z-0" />
       <div className="relative z-10 max-w-5xl mx-auto px-4">
-        <h2 className="text-3xl md:text-3xl font-bold text-center mb-3 uppercase tracking-wide">Le processus Downou</h2>
+        <h2 className="text-3xl md:text-3xl font-bold text-center mb-3 uppercase tracking-wide">Le processus Dowonou</h2>
         <p className="text-center text-gray-200 mb-10 max-w-4xl mx-auto">
         Chez Dowonou, notre approche repose sur quatre étapes clés : recueil de besoins, customisation, déploiement et formation avec maintenance, pour vous offrir une solution parfaitement adaptée et opérationnelle.
         </p>

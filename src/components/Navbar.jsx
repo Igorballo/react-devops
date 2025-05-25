@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -17,8 +18,9 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
         {/* Logo */}
         <div className="flex items-center gap-2">
+          {/* <img src="/images/DOWONOU_WHITE.svg" alt="logo" className="w-full h-8" /> */}
           <div className={`w-8 h-8 bg-blue-500 rounded flex items-center justify-center font-bold ${scrolled ? "text-white" : "text-white"}`}>D</div>
-          <span className={`font-bold text-lg ${scrolled ? "text-gray-800" : "text-white"}`}>Downou</span>
+          <span className={`font-bold text-lg ${scrolled ? "text-gray-800" : "text-white"}`}>Dowonou</span>
         </div>
         {/* Desktop menu */}
         <div className="hidden md:flex items-center gap-8">
@@ -29,7 +31,7 @@ const Navbar = () => {
         </div>
         {/* Bouton Se connecter */}
         <div className="hidden md:block">
-          <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition text-sm">Se connecter</button>
+          <Link to="/login" className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition text-sm">Se connecter</Link>
         </div>
         {/* Hamburger */}
         <button className="md:hidden flex items-center" onClick={() => setOpen(!open)}>
@@ -43,7 +45,7 @@ const Navbar = () => {
           <a href="#modules" className="block py-2 text-gray-700 hover:text-blue-500 font-medium">Modules</a>
           <a href="#apropos" className="block py-2 text-gray-700 hover:text-blue-500 font-medium">À propos</a>
           <a href="#contact" className="block py-2 text-gray-700 hover:text-blue-500 font-medium">Contact</a>
-          <button className="w-full mt-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition text-sm">Se connecter</button>
+          <Link to="/login" className="w-full mt-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition text-sm flex items-center justify-center">Se connecter</Link>
         </div>
       )}
     </nav>

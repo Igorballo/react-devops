@@ -2,31 +2,31 @@ import React from "react";
 
 const modules = [
   {
-    title: "DOWNOU RH",
+    title: "DOWONOU RH",
     desc: "Solutions destinées à optimiser la gestion du personnel au sein d'une ou plusieurs entreprise",
     color: "border-blue-600",
     icon: "/images/DOWONOU_RH.svg",
   },
   {
-    title: "DOWNOU GED",
+    title: "DOWONOU GED",
     desc: "Gestion électronique des documents qui centralise, organise et sécurise tous vos fichiers.",
     color: "border-green-400",
     icon: "/images/DOWONOU_GED.png",
   },
   {
-    title: "DOWNOU PAIE",
+    title: "DOWONOU PAIE",
     desc: "Solution intuitive qui automatise le calcul des salaires. Une administration efficace et sécurisée.",
     color: "border-teal-500",
     icon: "/images/DOWONOU_PAIE.svg",
   },
   {
-    title: "DOWNOU CRM",
+    title: "DOWONOU CRM",
     desc: "Solutions destinées à aider les entreprises à gérer leurs relations avec leurs clients actuels et potentiels.",
     color: "border-red-600",
     icon: "/images/DOWONOU_CRM.svg",
   },
   {
-    title: "DOWNOU STOCK",
+    title: "DOWONOU STOCK",
     desc: "Gestion électronique des documents qui centralise, organise et sécurise tous vos fichiers.",
     color: "border-blue-400",
     icon: "/images/DOWONOU_STOCK.svg",
@@ -41,9 +41,9 @@ const ModulesSection = () => {
           Des modules <span className="text-blue-700">adaptés</span> à vos <span className="text-blue-700">besoins</span>
         </h2>
         <p className="text-center text-gray-500 max-w-2xl mx-auto mb-20">
-          Découvrez comment Downou peut transformer la gestion de vos employés grâce à ses fonctionnalités innovantes et intuitives. Une personnalisation avancée, et un support client exceptionnel, notre logiciel vous offre une gestion intégrée et efficace.
+          Découvrez comment Dowonou peut transformer la gestion de vos employés grâce à ses fonctionnalités innovantes et intuitives. Une personnalisation avancée, et un support client exceptionnel, notre logiciel vous offre une gestion intégrée et efficace.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center items-center justify-center">
+        <div className="flex flex-wrap gap-8 lg:gap-12 xl:gap-16 justify-items-center items-center justify-center">
           {modules.map((mod, idx) => (
             <div
               key={mod.title}
