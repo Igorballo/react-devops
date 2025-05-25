@@ -9,7 +9,7 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Ici tu peux ajouter la logique d'authentification
-    navigate("/");
+    navigate("/modules");
   };
 
   return (
@@ -77,7 +77,7 @@ const LoginPage = () => {
                 </div>
               </div>
               <button
-                type="submit"
+                onClick={handleSubmit}
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded transition mt-2"
               >
                 Connexion

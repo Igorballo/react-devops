@@ -6,12 +6,12 @@ const ContactSection = () => {
       <div className="flex justify-center items-center text-center mb-12">
         <div className="flex flex-col gap-4 max-w-3xl">
           <h3 className="text-3xl font-bold">Contactez nous ou <span className="text-blue-600">demandez de démo</span></h3>
-          <p className="text-gray-400 font-normal text-sm">Notre équipe est à votre écoute pour répondre à toutes vos préoccupations, vous accompagner dans votre projet ou vous fournir plus d’informations sur nos solutions. N’hésitez pas à nous écrire, nous vous répondrons dans les plus brefs délais.</p>
+          <p className="text-gray-500 font-normal text-sm">Notre équipe est à votre écoute pour répondre à toutes vos préoccupations, vous accompagner dans votre projet ou vous fournir plus d’informations sur nos solutions. N’hésitez pas à nous écrire, nous vous répondrons dans les plus brefs délais.</p>
         </div>
       </div>
-      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-start bg-white rounded-lg p-4">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start bg-white rounded-lg p-4">
         {/* Infos de contact */}
-        <div className="bg-[#0A55C6] rounded-2xl shadow p-8 w-full md:w-1/2 mb-8 md:mb-0">
+        <div className="bg-[#0A55C6] rounded-xl shadow p-8 w-full md:w-1/2 mb-8 md:mb-0">
           <h3 className="text-2xl font-semibold text-white mb-4">Informations de Contact</h3>
           <p className="text-gray-200">Remplissez le formulaire ci-contre et entrons en contact dès aujourd’hui.</p>
           <ul className="text-gray-100 space-y-4 mt-10">
