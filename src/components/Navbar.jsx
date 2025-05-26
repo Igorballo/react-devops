@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, NavLink, useLocation } from "react-router-dom";
 
 const modules = [
   { name: "AGBALE", to: "/agbale" },
-  { name: "DOWONOU RH", to: "/rh" },
-  { name: "ERP- LOG", to: "/erp" },
-  { name: "PAIE-LOG", to: "/paie" },
-  { name: "CRM-LOG", to: "/crm" },
+  { name: "DOWONOU RH", to: "/dowonou" },
+  { name: "ERP- LOG", to: "/erp-log" },
+  { name: "PAIE-LOG", to: "/paie-log" },
+  { name: "CRM-LOG", to: "/crm-log" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-
+  const location = useLocation();
   const navigate = useNavigate();
+
+  const isSolutionsActive = modules.some(module => location.pathname === module.to);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,12 +46,19 @@ const Navbar = () => {
         </div>
         {/* Desktop menu */}
         <div className="hidden md:flex items-center gap-8">
-          <button onClick={() => navigate("/")} className={`${scrolled ? "text-gray-700" : "text-gray-200"} hover:text-blue-500 font-medium text-sm`}>Accueil</button>
+          <NavLink 
+            to="/" 
+            className={({ isActive }) => 
+              `font-medium text-sm ${scrolled ? "text-gray-700" : "text-gray-200"} hover:text-blue-500 ${isActive ? 'border-b-[3px] border-blue-400 pb-0.5' : ''}`
+            }
+          >
+            Accueil
+          </NavLink>
           {/* Dropdown Solutions */}
           <div className="relative" id="solutions-dropdown">
             <button
               onClick={() => setDropdown((d) => !d)}
-              className={`flex items-center gap-1 ${scrolled ? "text-gray-700" : "text-gray-200"} hover:text-blue-500 font-medium text-sm focus:outline-none`}
+              className={`flex items-center gap-1 ${scrolled ? "text-gray-700" : "text-gray-200"} hover:text-blue-500 font-medium text-sm focus:outline-none ${isSolutionsActive ? 'border-b-[3px] border-blue-400 pb-0.5' : ''}`}
             >
               Solutions
               <svg className={`w-4 h-4 transition-transform ${dropdown ? "rotate-180" : "rotate-0"}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
@@ -69,8 +78,10 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          <button onClick={() => navigate("/about")} className={`${scrolled ? "text-gray-700" : "text-gray-200"} hover:text-blue-500 font-medium text-sm`}>À propos</button>
-          <button onClick={() => navigate("/contact")} className={`${scrolled ? "text-gray-700" : "text-gray-200"} hover:text-blue-500 font-medium text-sm`}>Contact</button>
+          <a href="#apropos" className={`${scrolled ? "text-gray-700" : "text-gray-200"} hover:text-blue-500 font-medium text-sm`}>À propos</a>
+          <a href="#contact" className={`${scrolled ? "text-gray-700" : "text-gray-200"} hover:text-blue-500 font-medium text-sm`}>Contact</a>
+          {/* <button onClick={() => navigate("/about")} className={`${scrolled ? "text-gray-700" : "text-gray-200"} hover:text-blue-500 font-medium text-sm`}>À propos</button>
+          <button onClick={() => navigate("/contact")} className={`${scrolled ? "text-gray-700" : "text-gray-200"} hover:text-blue-500 font-medium text-sm`}>Contact</button> */}
         </div>
         {/* Bouton Se connecter */}
         <div className="hidden md:block">
