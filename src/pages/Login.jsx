@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -73,7 +73,9 @@ const LoginPage = () => {
                   />
                 </div>
                 <div className="flex justify-end mt-1">
-                  <a href="#" className="text-xs text-blue-600 hover:underline">Mot de passe oublié ?</a>
+                  <Link to="/reset-password" className="text-blue-600 hover:underline">
+                    Mot de passe oublié ?
+                  </Link>
                 </div>
               </div>
               <button

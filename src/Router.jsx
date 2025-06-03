@@ -8,6 +8,9 @@ import Ged from "./pages/Agbale";
 import Erp from "./pages/Erp";
 import Paie from "./pages/Paie";
 import Crm from "./pages/Crm";
+import ResetPassword from "./pages/ResetPassword";
+import VerifyCode from "./pages/VerifyCode";
+import NewPassword from "./pages/NewPassword";
 
 const AppRouter = () => (
   <Router>
@@ -20,6 +23,9 @@ const AppRouter = () => (
       <Route path="/erp-log" element={<Erp />} />
       <Route path="/paie-log" element={<Paie />} />
       <Route path="/crm-log" element={<Crm />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/verify-code" element={<VerifyCode />} />
+      <Route path="/new-password" element={<NewPassword />} />
     </Routes>
   </Router>
 );
