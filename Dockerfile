@@ -1,13 +1,29 @@
-FROM node:20-alpine
+# Step 1: Build the React application
+FROM node:20 AS build
 
+# Set the working directory in the container
 WORKDIR /app
 
-COPY package*.json .
+# Copy the package.json and package-lock.json (or yarn.lock)
+COPY package*.json ./
 
+# Install dependencies
 RUN npm install
 
+# Copy the rest of the application files
 COPY . .
 
-EXPOSE 3000
+# Build the React application
+RUN npm run build
 
-CMD ["npm", "run", "dev"]
+# Step 2: Serve the React application
+FROM nginx:alpine
+
+# Copy the build artifacts from the previous stage
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Expose port 80 to the outside world
+EXPOSE 80
+
+# Start the Nginx server
+CMD ["nginx", "-g", "daemon off;"]
