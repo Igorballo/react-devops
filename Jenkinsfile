@@ -1,6 +1,15 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_USERNAME = "igorballo"
+        IMAGE_VERSION = "1.${BUILD_NUMBER}"
+        DOCKER_IMAGE = "${DOCKER_USERNAME}/react-devops:${IMAGE_VERSION}"
+        DOCKER_CONTAINER = "react-devops-app-${BUILD_NUMBER}"
+        DOCKER_REGISTRY = "index.docker.io"
+        DOCKER_CREDENTIALS_ID = "Igorballo"  // ID du secret Jenkins
+    }
+
     stages {
         stage('Checkout') {
             steps {
