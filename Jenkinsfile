@@ -12,7 +12,6 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the source code from the repository
                 git branch: 'main', url: 'https://github.com/Igorballo/react-devops.git', credentialsId: 'jenkins_id'
             }
         }
@@ -20,7 +19,6 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Build the Docker image
                     docker.build("${DOCKER_IMAGE}:latest")
                 }
             }
@@ -28,17 +26,14 @@ pipeline {
 
         stage('Test') {
             steps {
-                script {
-                }
+                echo 'No tests for now'
             }
         }
 
         stage('Push Docker Image') {
             steps {
                 script {
-                    // Log in to Docker registry
                     docker.withRegistry("https://${DOCKER_REGISTRY}", "${DOCKER_REGISTRY_CREDENTIALS_ID}") {
-                        // Push Docker image to registry
                         docker.image("${DOCKER_IMAGE}:latest").push('latest')
                     }
                 }
@@ -48,7 +43,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-            
             }
         }
     }
