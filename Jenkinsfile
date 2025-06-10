@@ -6,7 +6,8 @@ pipeline {
         IMAGE_VERSION = "1.${BUILD_NUMBER}"
         DOCKER_IMAGE = "${DOCKER_USERNAME}/react-devops:${IMAGE_VERSION}"
         DOCKER_CONTAINER = "react-devops-app-${BUILD_NUMBER}"
-        DOCKER_CREDENTIALS = credentials("Igorballo")
+        DOCKER_REGISTRY = "index.docker.io"
+        DOCKER_CREDENTIALS_ID = "Igorballo"  // ID du secret Jenkins
     }
 
     stages {
@@ -33,7 +34,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    docker.withRegistry("https://${DOCKER_REGISTRY}", "${DOCKER_REGISTRY_CREDENTIALS_ID}") {
+                    docker.withRegistry("https://${DOCKER_REGISTRY}", "${DOCKER_CREDENTIALS_ID}") {
                         docker.image("${DOCKER_IMAGE}:latest").push('latest')
                     }
                 }
