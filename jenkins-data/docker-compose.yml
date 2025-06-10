@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     privileged: true
-    user: root
+    user: jenkins
     ports:
       - "8082:8080"
       - "50000:50000"
@@ -14,6 +14,8 @@ services:
     volumes:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
     restart: unless-stopped
 
 volumes:
