@@ -2,33 +2,82 @@ pipeline {
     agent any
 
     environment {
+
         DOCKER_USERNAME = "igorballo"
         IMAGE_VERSION = "1.${BUILD_NUMBER}"
         DOCKER_IMAGE = "${DOCKER_USERNAME}/react-devops:${IMAGE_VERSION}"
-        DOCKER_CONTAINER = "react-devops-app-${BUILD_NUMBER}"
-        DOCKER_REGISTRY = "index.docker.io"
-        DOCKER_CREDENTIALS_ID = "Igorballo"  // ID du secret Jenkins
+        // DOCKER_CONTAINER = "react-devops-app-${BUILD_NUMBER}"
+        // DOCKER_REGISTRY = "index.docker.io"
+        // DOCKER_CREDENTIALS_ID = "Igorballo"  // ID du secret Jenkins
+    }
+
+    tools {
+        nodejs 'Node-20'
     }
 
     stages {
-        stage('Checkout') {
+        stage('Cloner le repo') {
             steps {
+                cleanWs()
                 git branch: 'master', url: 'https://github.com/Igorballo/react-devops.git', credentialsId: 'jenkins_id'
+                
+                script {
+                    if(!fileExists('package.json')) {
+                        error 'package.json not found'
+                    }
+                }
             }
         }
 
-        stage('Build') {
-            steps {
-                echo 'Build stage...'
-            }
-        }
-
-        
-        stage("Build Docker Image") {
+        stage('Installer les dépendances') {
             steps {
                 script {
-                    sh "docker build -t $DOCKER_IMAGE ."
+                    sh '''
+                        curl -f https://get.pnpm.io/v6.js | node - add --global pnpm
+                        pnpm install
+                    '''
                 }
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                try {
+                    sh 'docker build -t $DOCKER_IMAGE .'
+                } catch (e) {
+                    error 'Build failed: ${e}'
+                }
+            }
+        }
+
+        stage('Déployer l\'image Docker') {
+            steps {
+                try {
+                    sh 'docker-compose up -d'
+                } catch (e) {
+                    error 'Push failed: ${e}'
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Piple execué avec succès'
+            script {
+                sh 'Application déployée avec succès sur localhost:80'
+            }
+        }
+        failure {
+            echo 'Piple échoué'
+            script {
+                sh 'docker-compose down || true'
+            }
+        }
+        always {
+            script {
+                sh 'docker system prune -f || true'
+                archiveArtifacts artifacts: '**/log/*.log', allowEmptyArchive: true
             }
         }
     }
