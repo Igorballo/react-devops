@@ -12,6 +12,14 @@ pipeline {
     }
 
     stages {
+        stage('Vérifier l\'environnement') {
+            steps {
+                script {
+                    sh 'docker --version || { echo "Docker n\'est pas installé"; exit 1; }'
+                }
+            }
+        }
+
         stage('Cloner le repo') {
             steps {
                 cleanWs()
@@ -42,7 +50,7 @@ pipeline {
                     try {
                         sh 'docker build -t $DOCKER_IMAGE .'
                     } catch (e) {
-                        error 'Build failed: ${e}'
+                        error "Build failed: ${e}"
                     }
                 }
             }
@@ -54,7 +62,7 @@ pipeline {
                     try {
                         sh 'docker-compose up -d'
                     } catch (e) {
-                        error 'Push failed: ${e}'
+                        error "Push failed: ${e}"
                     }
                 }
             }
@@ -63,13 +71,13 @@ pipeline {
 
     post {
         success {
-            echo 'Piple execué avec succès'
+            echo 'Pipeline exécuté avec succès'
             script {
-                sh 'Application déployée avec succès sur localhost:80'
+                sh 'echo "Application déployée avec succès sur localhost:80"'
             }
         }
         failure {
-            echo 'Piple échoué'
+            echo 'Pipeline échoué'
             script {
                 sh 'docker-compose down || true'
             }
