@@ -2,13 +2,9 @@ pipeline {
     agent any
 
     environment {
-
         DOCKER_USERNAME = "igorballo"
         IMAGE_VERSION = "1.${BUILD_NUMBER}"
         DOCKER_IMAGE = "${DOCKER_USERNAME}/react-devops:${IMAGE_VERSION}"
-        // DOCKER_CONTAINER = "react-devops-app-${BUILD_NUMBER}"
-        // DOCKER_REGISTRY = "index.docker.io"
-        // DOCKER_CREDENTIALS_ID = "Igorballo"  // ID du secret Jenkins
     }
 
     tools {
@@ -42,20 +38,24 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                try {
-                    sh 'docker build -t $DOCKER_IMAGE .'
-                } catch (e) {
-                    error 'Build failed: ${e}'
+                script {
+                    try {
+                        sh 'docker build -t $DOCKER_IMAGE .'
+                    } catch (e) {
+                        error 'Build failed: ${e}'
+                    }
                 }
             }
         }
 
         stage('Déployer l\'image Docker') {
             steps {
-                try {
-                    sh 'docker-compose up -d'
-                } catch (e) {
-                    error 'Push failed: ${e}'
+                script {
+                    try {
+                        sh 'docker-compose up -d'
+                    } catch (e) {
+                        error 'Push failed: ${e}'
+                    }
                 }
             }
         }
